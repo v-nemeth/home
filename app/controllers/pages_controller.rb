@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ show edit update destroy ]
 
-  # GET /pages or /pages.json
+  # GET /pages
   def index
     @pages = Page.all
   end
 
-  # GET /pages/1 or /pages/1.json
+  # GET /pages/1
   def show
   end
 
@@ -19,42 +19,30 @@ class PagesController < ApplicationController
   def edit
   end
 
-  # POST /pages or /pages.json
+  # POST /pages
   def create
     @page = Page.new(page_params)
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to page_url(@page), notice: "Page was successfully created." }
-        format.json { render :show, status: :created, location: @page }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.save
+      redirect_to @page, notice: "Page was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /pages/1 or /pages/1.json
+  # PATCH/PUT /pages/1
   def update
-    respond_to do |format|
-      if @page.update(page_params)
-        format.html { redirect_to page_url(@page), notice: "Page was successfully updated." }
-        format.json { render :show, status: :ok, location: @page }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+    if @page.update(page_params)
+      redirect_to @page, notice: "Page was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /pages/1 or /pages/1.json
+  # DELETE /pages/1
   def destroy
     @page.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pages_url, notice: "Page was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to pages_url, notice: "Page was successfully destroyed."
   end
 
   private
