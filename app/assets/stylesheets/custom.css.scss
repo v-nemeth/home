@@ -22,7 +22,6 @@ main{
   bottom: 3rem;
   transform: translateX(-50%);
   background-color: navy;
-  color: whitesmoke;
   border: none;
   border-radius: 5rem;
   outline: none;
@@ -41,7 +40,22 @@ main{
   transform: translateX(-50%) scale(0.90);
 }
 
-i {
-  height: 4rem;
-  width: 4rem;
+#nav-toggle > i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(0.9);
+  color: whitesmoke;
+  font-size: 2rem;
+  opacity: 0;
+}
+
+body:not([data-nav="true"]) > #nav-toggle:hover > .open {
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+body:not([data-nav="false"]) > #nav-toggle > .close {
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
 }

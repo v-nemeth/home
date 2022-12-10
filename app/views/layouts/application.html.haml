@@ -9,11 +9,13 @@
     = stylesheet_link_tag "custom", "data-turbo-track": "reload"
 
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = javascript_include_tag "custom", "data-turbo-track": "reload", defer: true
+
   %body{"data-nav":"false"}
     %main
       = yield
 
-      %button{id:"nav-toggle", type:"button", onclick: "toggleNav()"}
-        %i.bi.bi-list
-        %i.bi.bi-X-lg
+    %button{id:"nav-toggle", type:"button", onclick: "toggleNav()"}
+      %i.bi.bi-list.open
+      %i.bi.bi-X-lg.close
 
