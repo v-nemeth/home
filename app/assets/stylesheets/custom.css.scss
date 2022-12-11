@@ -108,8 +108,7 @@ body[data-nav="true"] > nav > #nav-links{
 #nav-links > .nav-link > .nav-link-img{
   width: 40vmin;
   height: 100%;
-  -webkit-user-drag: none;
-  pointer-events: none;
+  user-drag: none;
 }
 
 #nav-links > .nav-link > .nav-link-img > img{

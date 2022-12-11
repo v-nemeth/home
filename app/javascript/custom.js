@@ -25,19 +25,18 @@ window.onmousemove = ev => {
 
     parent.dataset.percentage = nextPercentage
 
-    //track.style.transform = `translate(${nextPercentage}%)`;
+
     track.animate({
         transform: `translate(${nextPercentage}%)`
     }, {duration: 1200, fill:"forwards"});
 
 
     for(const image of track.getElementsByClassName("nav-image")) {
-        console.log(image)
-        //image.style.objectPosition = `${nextPercentage+50}% 50%`
         image.animate({
             objectPosition:`${nextPercentage+50}% 50%`
         }, {duration:1200,fill:"forwards"})
 
     }
 }
+
 
