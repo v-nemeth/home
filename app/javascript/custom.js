@@ -6,24 +6,38 @@ const parent = document.getElementById("nav-links-parent")
 const track = document.getElementById("nav-links")
 
 window.onmousedown = ev => {
-    track.dataset.mouseDownAt = ev.clientX;
+    parent.dataset.mouseDownAt = ev.clientX;
 }
 window.onmouseup = () => {
-    track.dataset.mouseDownAt = "0"
+    parent.dataset.mouseDownAt = "0"
 
-    if(track.dataset.percentage != null)
-        track.dataset.prevPercentage = track.dataset.percentage;
+    if(parent.dataset.percentage != null)
+        parent.dataset.prevPercentage = parent.dataset.percentage;
 }
 
 window.onmousemove = ev => {
-    if(track.dataset.mouseDownAt === "0") return;
-    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - ev.clientX, maxDelta = window.innerWidth / 2;
+    if(parent.dataset.mouseDownAt === "0") return;
+    const mouseDelta = parseFloat(parent.dataset.mouseDownAt) - ev.clientX, maxDelta = window.innerWidth * 0.8;
 
-    const percentage = (mouseDelta / maxDelta) * -100, nextPercentageNoConstraints = parseFloat(track.dataset.prevPercentage) + percentage;
+    const percentage = (mouseDelta / maxDelta) * -100, nextPercentageNoConstraints = parseFloat(parent.dataset.prevPercentage) + percentage;
 
-    nextPercentage = Math.max(Math.min(nextPercentageNoConstraints,100),-100)
+    nextPercentage = Math.max(Math.min(nextPercentageNoConstraints,50),-50)
 
-    track.dataset.percentage = nextPercentage
+    parent.dataset.percentage = nextPercentage
 
-    track.style.transform = `translate(${nextPercentage}%)`;
+    //track.style.transform = `translate(${nextPercentage}%)`;
+    track.animate({
+        transform: `translate(${nextPercentage}%)`
+    }, {duration: 1200, fill:"forwards"});
+
+
+    for(const image of track.getElementsByClassName("nav-image")) {
+        console.log(image)
+        //image.style.objectPosition = `${nextPercentage+50}% 50%`
+        image.animate({
+            objectPosition:`${nextPercentage+50}% 50%`
+        }, {duration:1200,fill:"forwards"})
+
+    }
 }
+

@@ -2,11 +2,11 @@
   %i.bi.bi-list.open
   %i.bi.bi-X-lg.close
 
-%nav#nav-links-parent
-  #nav-links{"data-mouse-down-at":"0", "data-prev-percentage": "0"}
+%nav#nav-links-parent{"data-mouse-down-at":"0", "data-prev-percentage": "0"}
+  #nav-links.noselect
     .nav-link
       .nav-link-label Hello world!
-      = link_to image_tag("arnold-francisca-f77Bh3inUpE-unsplash.jpg"), root_path, class: "nav-link-img"
+      = link_to image_tag("arnold-francisca-f77Bh3inUpE-unsplash.jpg", class:"nav-image"), root_path, class: "nav-link-img"
     .nav-link
       .nav-link-label Hello world!
-      = link_to image_tag("arnold-francisca-f77Bh3inUpE-unsplash.jpg"), root_path, class: "nav-link-img"
+      = link_to image_tag("arnold-francisca-f77Bh3inUpE-unsplash.jpg", class:"nav-image"), root_path, class: "nav-link-img"
