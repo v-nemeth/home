@@ -86,6 +86,9 @@ nav{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
   transform: translateY(70%) scale(0.9);
+}
+
+#nav-links:not(:active){
   transition: transform 500ms;
 }
 
