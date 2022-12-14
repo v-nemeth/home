@@ -70,6 +70,7 @@ body[data-nav="true"] > #nav-toggle > .close {
 }
 
 nav{
+  background-color: #1e2125;
   height: 50vh;
   width: 100%;
   position: absolute;
@@ -127,5 +128,18 @@ body[data-nav="true"] > nav > #nav-links{
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.navbar{
+  box-shadow: 0rem 0rem 4rem whitesmoke;
+}
+.navbar-brand {
+  display: inline-flex;
+}
+
+.navbar-brand > .logo{
+  color: navy;
+  font-size: 2em;
+  font-weight: bold;
 }
 
