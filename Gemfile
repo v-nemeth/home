@@ -30,6 +30,10 @@ gem 'jsbundling-rails'
 
 gem 'haml'
 
+gem 'simple_form'
+
+gem 'cocoon'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

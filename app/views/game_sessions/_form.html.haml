@@ -1,0 +1,15 @@
+
+= form_for @game_session do |f|
+  - if @game_session.errors.any?
+    =render 'shared/errors', object: @game_session
+
+  = f.label :game
+  = f.select :game, Game.all.collect {|p| [p.name, p.id]}
+
+  = f.label :winner
+  = f.select :winner_id, Player.all.collect {|p| [p.name, p.id]}
+
+
+
+  = f.submit
+

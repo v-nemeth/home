@@ -1,0 +1,6 @@
+
+= pluralize(object.errors.count, "error") + "prohibited this game_session from being saved:"
+
+%ul
+  - game_session.errors.each do |error|
+    %li = error.full_message
