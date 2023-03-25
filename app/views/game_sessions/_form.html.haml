@@ -1,4 +1,3 @@
-
 = form_for @game_session do |f|
   - if @game_session.errors.any?
     =render 'shared/errors', object: @game_session
@@ -9,7 +8,12 @@
   = f.label :winner
   = f.select :winner_id, Player.all.collect {|p| [p.name, p.id]}
 
-
+  %h3 Players
+  #players
+    =f.fields_for :players do |player|
+      = render 'player_fields', f: player
+    .links
+      = link_to_add_association 'add player', f, :players, class: "btn btn-success"
 
   = f.submit
 
